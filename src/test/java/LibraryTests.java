@@ -53,4 +53,18 @@ public class LibraryTests {
         assertEquals(2, library.getBooks());
         assertEquals(1, borrower.getBooks());
     }
+
+    @Test
+    public void checkCanCountBooksByGenre(){
+        library.addToCollection(book1);
+        library.addToCollection(book2);
+        library.addToCollection(book3);
+        library.addToCollection(book1);
+        library.addToCollection(book2);
+        library.countBooksByGenre();
+        int result1 = library.getBookGenres().get(book1.getGenre());
+        int result2 = library.getBookGenres().get(book3.getGenre());
+        assertEquals(4, result1);
+        assertEquals(1, result2);
+    }
 }
